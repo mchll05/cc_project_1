@@ -1,0 +1,11 @@
+<h2> Store Inventory </h2>
+
+<hr/>
+  <% @books.each do |book| %>
+  <p>Title: <%= book.title %></p>
+  <p>Genre: <%= book.genre %></p>
+  <p>Author: <%= book.author().name %></p>
+  <p><a href="/books/<%= book.id %>/edit">Edit</a></p>
+<hr/>
+
+<% end %>

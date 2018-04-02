@@ -1,8 +1,9 @@
 require_relative('../db/sql_runner')
+require_relative('./author')
 
 class Book
 
-  attr_reader :title, :genre, :id
+  attr_reader :title, :genre, :author_id, :id
 
   def initialize(options)
     @id = options['id'].to_i
@@ -56,8 +57,18 @@ class Book
     sql = "SELECT * FROM books WHERE id = $1"
     values = [id]
     books = SqlRunner.run(sql, values)
-    result = Book.new(book.first)
+    result = Book.new(books.first)
     return result
   end
+
+def author
+  sql = 'SELECT * FROM authors
+  INNER JOIN books ON books.author_id = authors.id
+  WHERE books.id = $1'
+  values = [@id]
+  author = SqlRunner.run(sql, values)
+  result = Author.new(author.first)
+  return result
+end
 
 end

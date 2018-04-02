@@ -62,7 +62,7 @@ book9 = Book.new ({'title' => 'The Tempest',
   'author_id' => author8.id})
 
 book10 = Book.new ({'title' => 'Alias Grace',
-  'genre' => 'non-fiction',
+  'genre' => 'fiction',
   'author_id' => author9.id})
 
 book1.save()
