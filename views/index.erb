@@ -10,8 +10,10 @@
     <p>Stock Status: <%= book.stock_level_check %> </p>
 
     <p>
-      <a href="/books/<%= book.id %>/edit"><input type='button' id='edit-books' class='editbutton' value="Do I dare disturb the universe?" /></a>
+      <a href="/books/<%= book.id %>/edit" class='editbutton'>Do I dare disturb the universe?
+      </a>
     </p>
+
     <p>
       <form method="post" action="/books/<%= book.id %>/delete">
         <input type="submit" value="It was a pleasure to burn"/>

@@ -17,10 +17,8 @@ end
 
 #create - recieve new book form
 post '/books' do
-  # binding.pry
   @book = Book.new(params)
   @book.save()
-
   redirect '/books'
 end
 
@@ -43,7 +41,6 @@ post '/books/:id' do
   @book.update()
   redirect '/books'
 end
-
 
 #delete
 post '/books/:id/delete' do

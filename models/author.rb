@@ -34,7 +34,7 @@ def delete()
 end
 
 def self.all()
-  sql = "SELECT * FROM authors"
+  sql = "SELECT * FROM authors ORDER BY name"
   authors = SqlRunner.run( sql )
   result = authors.map { |author| Author.new(author) }
   return result

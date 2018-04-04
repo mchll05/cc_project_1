@@ -1,21 +1,36 @@
 body {
   background-color: #fdf7ef;
   font-family: Courier;
-
 }
 
 h2 {
   color: black;
   font-family: Courier;
   text-align: center;
+  background-color: #99a682;
+  border: 3px solid black;
+  padding: 8px;
+  font-size: 32px;
 }
 
 nav	a {
-	color: white;
+	color: black;
   font-family: Courier;
-  background-color: olive;
+  background-color: #99a682;
+  border: 3px solid black;
   padding: 8px;
   font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-family: allegro;
+  font-style:italic;
+}
+
+.button {
+  background-color: #99a682;
 }
 
 .logo {
@@ -30,7 +45,14 @@ nav	a {
 }
 
 .gallery-item {
-margin-left: 5px;
-margin-right: 5px;
-border: 5px solid black;
+  margin-left: 5px;
+  margin-right: 5px;
+  border: 5px solid black;
+}
+
+.editbutton {
+  background-color: #99a682;
+  border: 3px solid black;
+  padding: 6px;
+  font-size: 16px;
 }
