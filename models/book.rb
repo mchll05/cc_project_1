@@ -3,35 +3,29 @@ require_relative('./author')
 
 class Book
 
-  attr_reader :title, :genre, :author_id, :id
+  attr_reader :title, :genre, :author_id, :stock, :id
 
   def initialize(options)
     @id = options['id'].to_i
     @title = options['title']
     @genre = options['genre']
     @author_id = options['author_id'].to_i
-    # @quantity = options['quantity'].to_i
-    # @price = 10
+    @stock = options['stock'].to_i
+    #@buy_price = 10
+    #@sell_price
   end
 
-  # def pretty_title()
-  #   return "#{@title}"
-  # end
-
-  # def total()
-  #   return @quantity * @price
-  # end
-
   def save()
-    sql = "INSERT INTO books (title, genre, author_id) VALUES($1, $2, $3) RETURNING *"
-    values = [@title, @genre, @author_id]
+    sql = "INSERT INTO books (title, genre, author_id, stock) VALUES($1, $2, $3, $4) RETURNING *"
+    values = [@title, @genre, @author_id, @stock]
     book_data = SqlRunner.run(sql, values)
     @id = book_data.first['id'].to_i
   end
 
+
   def update()
-    sql = "UPDATE books SET(title, genre) VALUES($1, $2, $3) WHERE id = $4"
-    values = [@title, @genre, @author_id, @id]
+    sql = "UPDATE books SET title = $1, genre = $2 , author_id = $3, stock = $4 WHERE id = $5"
+    values = [@title, @genre, @author_id, @stock, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -70,5 +64,15 @@ def author
   result = Author.new(author.first)
   return result
 end
+
+def stock_level_check()
+    if @stock <= 3
+      return "New Order required"
+    elsif @stock >= 4  && @stock <= 10
+      return "Okay"
+    elsif @stock >= 11
+      return "Fully Loaded"
+    end
+  end
 
 end

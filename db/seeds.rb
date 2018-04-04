@@ -27,43 +27,53 @@ author9.save()
 
 book1 = Book.new ({'title' => 'The Axeman\'s Jazz',
   'genre' => 'crime',
-  'author_id' => author1.id})
+  'author_id' => author1.id,
+  'stock' => 4})
 
 book2 = Book.new ({'title' => 'War and Peace',
   'genre' => 'fiction',
-  'author_id' => author2.id})
+  'author_id' => author2.id,
+  'stock' => 2})
 
 book3 = Book.new ({'title' => 'Coraline',
   'genre' => 'children',
-  'author_id' => author3.id})
+  'author_id' => author3.id,
+  'stock' => 6})
 
 book4 = Book.new ({'title' => 'Leaves of Grass',
   'genre' => 'poetry',
-  'author_id' => author4.id})
+  'author_id' => author4.id,
+  'stock' => 1})
 
 book5 = Book.new ({'title' => 'Do Androids Dream of Electric Sheep',
   'genre'  => 'science fiction',
-  'author_id' => author5.id})
+  'author_id' => author5.id,
+  'stock' => 5})
 
 book6 = Book.new ({'title' => 'Dead Man\'s Blues',
   'genre' => 'crime',
-  'author_id' => author1.id})
+  'author_id' => author1.id,
+  'stock' => 5})
 
 book7 = Book.new ({'title' => 'The Hobbit',
   'genre' => 'fantasy',
-  'author_id' => author6.id})
+  'author_id' => author6.id,
+  'stock' => 4})
 
 book8 = Book.new ({'title' => 'The Hare With Amber Eyes',
   'genre' => 'non-fiction',
-  'author_id' => author7.id})
+  'author_id' => author7.id,
+  'stock' => 2})
 
 book9 = Book.new ({'title' => 'The Tempest',
   'genre' => 'drama',
-  'author_id' => author8.id})
+  'author_id' => author8.id,
+  'stock' => 5})
 
 book10 = Book.new ({'title' => 'Alias Grace',
   'genre' => 'fiction',
-  'author_id' => author9.id})
+  'author_id' => author9.id,
+  'stock' => 10})
 
 book1.save()
 book2.save()

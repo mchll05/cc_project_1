@@ -2,11 +2,24 @@
   <label for='title'>Title: </label>
   <input id='title' type='text' name='title' />
 
-  <label for='genre'>Genre: </label>
-  <input id='genre' type='text' name='genre' />
 
-  <label for='author_id'>Author: </label>
-  <input id='author' type='text' name='author' />
+  <label for="genre">Genre:</label>
+  <select id="genre" name="genre">
+    <% ["Children's", "Crime", "Drama", "Fantasy", "Fiction", "Non-fiction", "Poetry", "Science Fiction"].each do |genre_str|  %>
+      <option value="<%= genre_str %>" ><%=  genre_str  %></option>
+    <% end %>
+  </select>
+
+
+  <label for="author-select">Author:</label>
+  <select id="author-select" name="author_id">
+    <% @authors.each do |author_obj|  %>
+      <option value="<%= author_obj.id %>" ><%=  author_obj.name %></option>
+    <% end %>
+  </select>
+
+  <label for='stock'>Stock:</label>
+  <input id='stock' type='number' name='stock' />
 
   <input type='submit' value='Add'/>
 </form>
