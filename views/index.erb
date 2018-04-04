@@ -1,4 +1,4 @@
-<h2> Store Inventory </h2>
+<h2> Virgil's Books: Inventory </h2>
 
 <hr/>
 
@@ -10,13 +10,11 @@
     <p>Stock Status: <%= book.stock_level_check %> </p>
 
     <p>
-
-      <a href="/books/<%= book.id %>/edit"><input type='button' id='edit-books' class='editbutton' value="Edit" /></a>
+      <a href="/books/<%= book.id %>/edit"><input type='button' id='edit-books' class='editbutton' value="Do I dare disturb the universe?" /></a>
     </p>
-
     <p>
       <form method="post" action="/books/<%= book.id %>/delete">
-        <input type="submit" value="Delete"/>
+        <input type="submit" value="It was a pleasure to burn"/>
       </form>
     </p>
 
