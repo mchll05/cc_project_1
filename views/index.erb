@@ -9,7 +9,10 @@
     <p>Stock: <%= book.stock %></p>
     <p>Stock Status: <%= book.stock_level_check %> </p>
 
-    <p><a href="/books/<%= book.id %>/edit">Edit</a></p>
+    <p>
+
+      <a href="/books/<%= book.id %>/edit"><input type='button' id='edit-books' class='editbutton' value="Edit" /></a>
+    </p>
 
     <p>
       <form method="post" action="/books/<%= book.id %>/delete">
