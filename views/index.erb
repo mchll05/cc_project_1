@@ -1,11 +1,11 @@
 <h2> Virgil's Books: Inventory </h2>
 
-<hr/>
-
   <% @book.each do |book| %>
+  <div class="book-details">
     <p>Title: <%= book.title %></p>
     <p>Genre: <%= book.genre %></p>
     <p>Author: <%= book.author().name %></p>
+    <p>Price: <%= book.price %></p>
     <p>Stock: <%= book.stock %></p>
     <p>Stock Status: <%= book.stock_level_check %> </p>
 
@@ -19,6 +19,6 @@
         <input type="submit" value="It was a pleasure to burn"/>
       </form>
     </p>
+</div>
 
-    <hr/>
   <% end %>

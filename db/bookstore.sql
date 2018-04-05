@@ -11,5 +11,6 @@ CREATE TABLE books (
   title VARCHAR(255),
   genre VARCHAR(255),
   author_id INT4 REFERENCES authors(id) ON DELETE CASCADE,
-  stock INT4
+  stock INT4,
+  price INT4
 );

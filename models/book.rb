@@ -3,29 +3,28 @@ require_relative('./author')
 
 class Book
 
-  attr_reader :title, :genre, :author_id, :stock, :id
+  attr_reader :title, :genre, :author_id, :price, :stock, :id
 
   def initialize(options)
     @id = options['id'].to_i
     @title = options['title']
     @genre = options['genre']
     @author_id = options['author_id'].to_i
+    @price = options['price'].to_i
     @stock = options['stock'].to_i
-    #@buy_price = 10
-    #@sell_price
   end
 
   def save()
-    sql = "INSERT INTO books (title, genre, author_id, stock) VALUES($1, $2, $3, $4) RETURNING *"
-    values = [@title, @genre, @author_id, @stock]
+    sql = "INSERT INTO books (title, genre, author_id, price, stock) VALUES($1, $2, $3, $4, $5) RETURNING *"
+    values = [@title, @genre, @author_id, @price, @stock]
     book_data = SqlRunner.run(sql, values)
     @id = book_data.first['id'].to_i
   end
 
 
   def update()
-    sql = "UPDATE books SET title = $1, genre = $2 , author_id = $3, stock = $4 WHERE id = $5"
-    values = [@title, @genre, @author_id, @stock, @id]
+    sql = "UPDATE books SET title = $1, genre = $2 , author_id = $3, price = $4, stock = $5 WHERE id = $5"
+    values = [@title, @genre, @author_id, @price, @stock, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -75,4 +74,11 @@ def stock_level_check()
     end
   end
 
+  def self.search_by_title(title)
+    sql = "SELECT * FROM books WHERE title = $1"
+    values = [title]
+    books = SqlRunner.run( sql, values )
+    result = books.map { |book| Book.new(book) }
+    return result[0]
+  end
 end

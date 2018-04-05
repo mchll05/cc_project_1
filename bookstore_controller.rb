@@ -9,6 +9,18 @@ get '/books' do
   erb(:index)
 end
 
+#search page
+get '/books/search' do
+  @authors = Author.all
+  erb(:search)
+end
+
+#search
+get '/search/title' do
+  @book = Book.search_by_title(params["title"].capitalize)
+  erb(:search_results)
+end
+
 #new - get a new book form
 get '/books/new' do
   @authors = Author.all

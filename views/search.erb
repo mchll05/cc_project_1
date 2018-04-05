@@ -1,0 +1,15 @@
+
+    <form method='get' action='/search/title'>
+
+      <label for='title'>Title: </label>
+      <input id='title' type='text' name='title' />
+
+      <label for="author-select">Author:</label>
+      <select id="author-select" name="author_id">
+        <% @authors.each do |author_obj|  %>
+          <option value="<%= author_obj.id %>" ><%=  author_obj.name %></option>
+        <% end %>
+      </select>
+
+      <input type='submit' value='Search'/>
+    </form>
