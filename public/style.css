@@ -4,6 +4,8 @@ body {
   background-image: url("/images/book_background.jpg");
   color: black;
   font-size: 16px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 h2 {
@@ -41,12 +43,17 @@ div.book-details {
     background-image: url("/images/worn_paper.jpg");
 }
 
-.button {
+div.form-style {
+  color: black;
+  font-family: Courier;
   background-color: #99a682;
+  border: 3px solid black;
+  padding: 8px;
+  font-size: 16px;
 }
 
-.logo {
-
+.button {
+  background-color: #99a682;
 }
 
 .gallery {

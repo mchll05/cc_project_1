@@ -21,9 +21,13 @@ class Book
     @id = book_data.first['id'].to_i
   end
 
-
   def update()
-    sql = "UPDATE books SET title = $1, genre = $2 , author_id = $3, price = $4, stock = $5 WHERE id = $5"
+    sql = "UPDATE books
+    SET
+    (title, genre, author_id, price, stock)
+    =
+    ($1, $2, $3, $4, $5)
+    WHERE id = $6;"
     values = [@title, @genre, @author_id, @price, @stock, @id]
     SqlRunner.run(sql, values)
   end
